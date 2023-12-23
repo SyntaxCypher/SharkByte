@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SharkByte Uploads</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('wallpaper.jpg'); /* Replace 'wallpaper.jpg' with your image file */
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Hide scrollbars */
+        }
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .nav-content {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .nav-content h2 {
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 450px; /* Adjust image width */
+        }
+        .button-box {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+        }
+        input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .success-message,
+        .error-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: red;
+            display: none;
+        }
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 480px) {
+    .logo img {
+        width: 80%; /* Adjust image width for smaller screens */
+    }
+    .container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+    .button-box {
+        max-width: 90%; /* Adjust max-width for smaller screens */
+    }
+    input[type="file"],
+    input[type="submit"] {
+        width: 100%; /* Adjust button width for smaller screens */
+    }
+}
+
+/* Additional media queries for other common device sizes */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    /* Styles for larger phones or small tablets */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Styles for tablets */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-content">
+            <h2>SharkByte Upload Service</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="logo">
+            <img src="logo2.png" alt="Logo"> <!-- Replace 'logo.png' with your logo -->
+        </div>
+        <div class="description">
+            <h2>SharkByte Upload Ver: 1.0</h2>
+            <p>Sharkbyte Upload is a simple and secure way to upload your files.<br /> Just select the file using the "Browse" button and click "Upload" to get started.</p>
+        </div>
+        <div class="button-box">
+            <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return checkFile()">
+                <input type="file" name="file" id="file">
+                <input type="submit" value="Upload" onclick="showSuccessMessage()">
+            </form>
+            <div class="success-message" id="success">* File has been uploaded successfully</div>
+            <div class="error-message" id="error">* File not selected</div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccessMessage() {
+            document.getElementById("success").style.display = "block";
+            document.getElementById("error").style.display = "none";
+        }
+
+        function showErrorMessage() {
+            document.getElementById("error").style.display = "block";
+            document.getElementById("success").style.display = "none";
+        }
+
+        function checkFile() {
+            var fileInput = document.getElementById('file');
+            if (!fileInput.value) {
+                showErrorMessage();
+                return false; // Prevent form submission if no file is selected
+            }
+            return true; // Allow form submission if a file is selected
+        }
+    </script>
+</body>
+</html>
