@@ -1,4 +1,4 @@
-![CodeLogo4](https://github.com/QuantumBytePanda/ChatbotV2-haruko/assets/52766040/c7ebe686-8d19-4440-8ff8-7f65c5550e5f)
+
 # SharkByte Upload Service
 SharkByte Upload Service is a simple web application built with Flask that allows users to securely upload files. Users can select a file using the "Browse" button and upload it securely.
 
